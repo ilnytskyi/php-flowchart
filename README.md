@@ -22,6 +22,23 @@ Whether you're a developer working on a complex application or a technical write
 
 https://user-images.githubusercontent.com/3192770/227711209-db74c4d8-5b7d-4a1f-bea9-3ecd21e036b4.mov
 
+### Mermaid chart example that was injected automatically into this readme.md
+```mermaid
+%%[FlowchartGlobal]
+flowchart LR;
+registry["Records Registry"]
+exporter["Exporter Composite"]
+exporter--"finds records by namespace"-->registry
+GenerateCommand["Generate Command"]
+GenerateCommand--"1. calls collector"-->collector
+GenerateCommand--"2. calls exporter"-->exporter
+collector["Collector"]
+scannedDir["Scanned Directory"]
+collector--"scans attributes"-->scannedDir
+scannedDir--"receives attributes"-->collector
+collector--"register records"-->registry
+```
+
 ### Usage
 Use PHP attributes to mark your code with nodes and their links withing chart namespace to describe interaction
 ```php
@@ -65,21 +82,4 @@ bin/flowchart generate ./src
 ### Generate output images via JS from collected mermaid charts
 ```
 mmdc -i ./src/FlowchartGlobal.mmd -o out.png -p puppeteerConfigFile.json
-```
-
-### Mermaid chart example that was injected automatically into this readme.md 
-```mermaid
-%%[FlowchartGlobal]
-flowchart LR;
-registry["Records Registry"]
-exporter["Exporter Composite"]
-exporter--"finds records by namespace"-->registry
-GenerateCommand["Generate Command"]
-GenerateCommand--"1. calls collector"-->collector
-GenerateCommand--"2. calls exporter"-->exporter
-collector["Collector"]
-scannedDir["Scanned Directory"]
-collector--"scans attributes"-->scannedDir
-scannedDir--"receives attributes"-->collector
-collector--"register records"-->registry
 ```
