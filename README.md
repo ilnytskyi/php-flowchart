@@ -45,7 +45,7 @@ Use `destination -> exporter type`\
 
 Currently, the app supports:
 - generating raw text file that can be visualized at https://mermaid.live/edit
-- generating png files (node `mmcd` along with `puppeteer` packages required)
+- generating png files (node `mmdc` along with `puppeteer` packages required)
 - injecting source text into `.md` files via specifying `%%[CHART_NAMESPACE]`
 - more exporters for Confluence, Wiki etc. are coming soon.
 
