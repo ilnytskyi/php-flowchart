@@ -14,7 +14,7 @@ Whether you're a developer working on a complex application or a technical write
 
 ### Demo
 
-<video src="./docs/media/flowchart_demo.mov" width=550 controls="controls"></video>
+https://user-images.githubusercontent.com/3192770/227711209-db74c4d8-5b7d-4a1f-bea9-3ecd21e036b4.mov
 
 ### Usage
 Use PHP attributes to mark your code with nodes and their links withing chart namespace to describe interaction
