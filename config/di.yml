@@ -1,0 +1,54 @@
+services:
+  _defaults:
+    autowire: true
+    public: true
+
+  Flowchart\:
+    resource: '../src/'
+    exclude:
+      - '../src/Node.php'
+      - '../src/Link.php'
+
+  Flowchart\Console\Command\:
+    resource: '../src/Console/Command/*'
+    lazy: true
+    tags: [commands]
+
+  Flowchart\Console\Command\GenerateCommand:
+    lazy: true
+    arguments:
+      $collector: '@Flowchart\Attribute\Collector'
+
+  Flowchart\Console\App:
+    arguments:
+      $commands:
+        generate: '@Flowchart\Console\Command\GenerateCommand'
+
+  Flowchart\Attribute\Collector:
+    arguments:
+      $recordTypes:
+        node: !!str Flowchart\Node
+        link: !!str Flowchart\Link
+
+  Flowchart\Record\ExporterComposite:
+    arguments:
+      $exporters:
+        default: '@Flowchart\Record\Exporter\TextFile'
+        raw: '@Flowchart\Record\Exporter\RawString'
+        md: '@Flowchart\Record\Exporter\MarkdownInjector'
+        text: '@Flowchart\Record\Exporter\TextFile'
+        svg: '@Flowchart\Record\Exporter\NodeSvg'
+        png: '@Flowchart\Record\Exporter\NodePng'
+
+  Flowchart\Record\RendererProxy:
+    arguments:
+      $renderers:
+        mermaid: '@Flowchart\Record\Renderer\MermaidRenderer'
+      $defaultRenderer: !php/const Flowchart\Record\Renderer\MermaidRenderer::NAME
+#TODO: maybe app can be split in parts like Collector and Exporter/Renderer
+#So not only Mermaid format supported or mermaid along with other formats
+  Flowchart\Record\Renderer\MermaidRenderer:
+    arguments:
+      $recordTypeRenderer:
+        node: '@Flowchart\Record\Renderer\MermaidRenderer\Node'
+        link: '@Flowchart\Record\Renderer\MermaidRenderer\Link'

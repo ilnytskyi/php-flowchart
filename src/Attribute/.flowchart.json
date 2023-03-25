@@ -1,0 +1,6 @@
+{
+  "namespace": "AttributeRoot",
+  "exports": {
+    "attributeChart.png": "png"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "namespace": "FlowchartGlobal",
+  "exports": {
+    "./../README.md": "md",
+    "customFile.txt": "text",
+    "FlowchartGlobal.png": "png"
+  }
+}
