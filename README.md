@@ -5,6 +5,12 @@ This tool is designed to improve the documentation for your application and help
 With Flowchart PHP, you can quickly and easily create diagrams that illustrate the flow of your code, making it easier to understand and debug. \
 Whether you're a developer working on a complex application or a technical writer looking for a better way to explain complex concepts, Flowchart PHP can help you create clear, concise, and visually appealing diagrams that will enhance your documentation and improve the overall user experience. 
 
+## Why ?
+
+- Huge callstacks visualizations are not informative containing too much code noise.
+- Sometimes components include async operations running is different processes that can't be visualized by just using call stack 
+- This tool is aiming to simplify code flow visualization
+
 ### Requirements
 
 1. php >= 8.1
